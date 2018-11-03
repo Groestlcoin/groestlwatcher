@@ -10,8 +10,7 @@ _watch your favorite **crypto** on your terminal_ :computer:
 2. You **MUST** have NodeJS
 3. Run `npm i` || `yarn install`
 4. `node cryptowatch`  :tada: :tada:
-5. enter the __Ticker symbol__  :heavy_dollar_sign: of your coin 
-6. Make it rain! <br />
+5. Make it rain! <br />
 ![Make it rain!](rain.gif)
 
 <br />
