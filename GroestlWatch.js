@@ -3,7 +3,7 @@ const readline = require("readline");
 var player = require("play-sound")((opts = {}));
 const figlet = require('figlet');
 
-figlet('CRYPTO WATCHER ', function(err, data) {
+figlet('GROESTL WATCHER ', function(err, data) {
     if (err) {
         console.log('Something went wrong...');
         console.dir(err);
@@ -11,13 +11,9 @@ figlet('CRYPTO WATCHER ', function(err, data) {
     }
     console.log(data)
 
-    rl.question("write the symbol of your coin ", ans => {
-      var coin = null;
-      coin = ans.toUpperCase().replace(/\s/g, "");
-      if (coin !== null) {
-        function requestPrice() {
+    function requestPrice() {
           https.get(
-            `https://min-api.cryptocompare.com/data/price?fsym=${coin}&tsyms=USD`,
+            `https://min-api.cryptocompare.com/data/price?fsym=GRS&tsyms=USD`,
             res => {
               var data = "";
               res.on("data", chunk => {
@@ -28,10 +24,10 @@ figlet('CRYPTO WATCHER ', function(err, data) {
                 .on("end", () => {
                   var result = JSON.parse(data);
                   var old_price = result.USD;
-                  console.log(`The ${coin} price now is ${old_price} USD`);
+                  console.log(`The GRS price now is ${old_price} USD`);
                   setInterval(() => {
                     https.get(
-                      `https://min-api.cryptocompare.com/data/price?fsym=${coin}&tsyms=USD`,
+                      `https://min-api.cryptocompare.com/data/price?fsym=GRS&tsyms=USD`,
                       res => {
                         var newdata = "";
                         res.on("data", chunk => {
@@ -42,7 +38,7 @@ figlet('CRYPTO WATCHER ', function(err, data) {
                           var new_price = newResult.USD;
                           if (old_price !== new_price) {
                             console.log(
-                              `The price of ${coin} changed to ${new_price} USD`
+                              `The price of GRS changed to ${new_price} USD`
                             );
                             old_price = new_price;
                             player.play("foo.mp3", function(err) {
@@ -71,7 +67,3 @@ const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });
-
-
-
-var coin = null;
