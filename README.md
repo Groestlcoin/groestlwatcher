@@ -9,7 +9,7 @@ _watch your favorite **crypto** on your terminal_ :computer:
 1. Download all files, and make sure there are on the same __path__
 2. You **MUST** have NodeJS
 3. Run `npm i` || `yarn install`
-4. `node cryptowatch`  :tada: :tada:
+4. `node groestlwatch`  :tada: :tada:
 5. Make it rain! <br />
 ![Make it rain!](rain.gif)
 
